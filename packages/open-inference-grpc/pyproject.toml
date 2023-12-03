@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "open-inference-grpc"
+version = "2.0.0"
+description = "Generated gRPC client library for the open-inference-protocol"
+authors = []
+license = "Apache Liscence 2.0"
+readme = "README.md"
+packages = [{ include = "open_inference", from = "generated" }]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+grpcio = "^1.59.2"
+
+[tool.poetry.group.dev.dependencies]
+grpcio-tools = "^1.59.2"
+black = "^23.11.0"
+types-protobuf = "^4.24.0.4"
+mypy = "^1.7.0"
+
+[tool.black]
+line-length = 120
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

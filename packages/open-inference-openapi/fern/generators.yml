@@ -1,0 +1,11 @@
+default-group: local
+groups:
+  local:
+    generators:
+      - name: fernapi/fern-python-sdk
+        version: 0.7.1
+        output:
+          location: local-file-system
+          path: ../generated/open_inference/openapi
+        config:
+          client_class_name: OpenInferenceClient
