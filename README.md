@@ -1,12 +1,8 @@
 # Open Inference Protocol Client Libraries
 
 <p>
-<a href="https://pypi.org/project/open-inference-openapi/">
-    <img src="https://badge.fury.io/py/open-inference-openapi.svg" alt="Package version">
-</a>
-<a href="https://pypi.org/project/open-inference-grpc/">
-    <img src="https://badge.fury.io/py/open-inference-grpc.svg" alt="Package version">
-</a>
+<a href="https://pypi.org/project/open-inference-openapi/"><img src="https://badge.fury.io/py/open-inference-openapi.svg" alt="Package version"></a>
+<a href="https://pypi.org/project/open-inference-grpc/"><img src="https://badge.fury.io/py/open-inference-grpc.svg" alt="Package version"></a>
 </p>
 
 Generated Python client libraries for the Open Inference Protocol using protocol definitions tracked in the [open-inference/open-inference-protocol/](https://github.com/open-inference/open-inference-protocol) repository.
@@ -17,10 +13,10 @@ This repository contains generated Python source code and build scripts for Open
 
 ## OpenAPI implementation `open_inference.openapi`
 
-> :warning: Not yet available on pypi - see footnote \*
+> :warning: Not yet available on pypi, install directly from github - see footnote \*
 
-```py
-pip install open-inference-openapi
+```shell
+pip install 'open-inference-openapi @ git+https://git@github.com/open-inference/python-clients@openapi/v2.0.0#subdirectory=packages/open-inference-openapi'
 ```
 
 See [packages/open-inference-openapi](./packages/open-inference-openapi/README.md)
@@ -29,8 +25,8 @@ See [packages/open-inference-openapi](./packages/open-inference-openapi/README.m
 
 > :warning: Not yet available on pypi - see footnote \*
 
-```py
-pip install open-inference-grpc
+```shell
+pip install 'open-inference-grpc @ git+https://git@github.com/open-inference/python-clients@grpc/v2.0.0#subdirectory=packages/open-inference-grpc'
 ```
 
 See [packages/open-inference-grpc](./packages/open-inference-grpc/README.md)
