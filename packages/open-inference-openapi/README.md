@@ -21,7 +21,7 @@ $ pip install open-inference-openapi
 $ poetry add open-inference-openapi
 ```
 
-> A gRPC-based python client ([`open-inference-grpc`](../open-inference-grpc/README.md)) also exists for the Open Inference Protocol, and can be installed alongside this gRPC client, as both are distributed as [namespace packages](https://packaging.python.org/en/latest/guides/packaging-namespace-packages/#packaging-namespace-packages).
+> A gRPC-based python client ([`open-inference-grpc`](https://pypi.org/project/open-inference-grpc)) also exists for the Open Inference Protocol, and can be installed alongside this gRPC client, as both are distributed as [namespace packages](https://packaging.python.org/en/latest/guides/packaging-namespace-packages/#packaging-namespace-packages).
 
 ## Example
 
@@ -90,7 +90,7 @@ The `open-inference-openapi` python package relies on:
 
 ## Contribute
 
-This client is largely generated automatically by [`fern`](https://github.com/fern-api/fern), with a small amount of build post-processing in [build.py](./build.py).
+This client is largely generated automatically by [`fern`](https://github.com/fern-api/fern), with a small amount of build post-processing in [build.py](https://github.com/open-inference/python-clients/blob/main/packages/open-inference-grpc/build.py).
 
 > Run `python build.py` to build this package, it will:
 >

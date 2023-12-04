@@ -13,24 +13,34 @@ This repository contains generated Python source code and build scripts for Open
 
 ## OpenAPI implementation `open_inference.openapi`
 
-> :warning: Not yet available on pypi, install directly from github - see footnote \*
+```shell
+pip install open-inference-openapi
+```
+
+<details>
+<summary>Install from GitHub</summary>
 
 ```shell
 pip install 'open-inference-openapi @ git+https://git@github.com/open-inference/python-clients@openapi/v2.0.0#subdirectory=packages/open-inference-openapi'
 ```
 
+</details>
+
 See [packages/open-inference-openapi](./packages/open-inference-openapi/README.md)
 
 ## gRPC Implementation `open_inference.grpc`
 
-> :warning: Not yet available on pypi - see footnote \*
+```shell
+pip install open-inference-grpc
+```
+
+<details>
+<summary>Install from GitHub</summary>
 
 ```shell
 pip install 'open-inference-grpc @ git+https://git@github.com/open-inference/python-clients@grpc/v2.0.0#subdirectory=packages/open-inference-grpc'
 ```
 
+</details>
+
 See [packages/open-inference-grpc](./packages/open-inference-grpc/README.md)
-
----
-
-<sup> \* These packages are not yet published to pypi, as there is an [ongoing incident](https://status.python.org/incidents/0th66lc1l8by) preventing new user registration. </sup>

@@ -2,10 +2,35 @@
 name = "open-inference-grpc"
 version = "2.0.0"
 description = "Generated gRPC client library for the open-inference-protocol"
-authors = []
-license = "Apache Liscence 2.0"
+authors = ["Zev Isert <zevisert@users.noreply.github.com>"]
+maintainers = ["Zev Isert <zevisert@users.noreply.github.com>"]
+license = "Apache-2.0"
 readme = "README.md"
+repository = "https://github.com/open-inference/python-clients"
 packages = [{ include = "open_inference", from = "generated" }]
+keywords = [
+    "mlserver",
+    "kserve",
+    "triton",
+    "seldon",
+    "openvino",
+    "amdinfer",
+    "pytorch-serve",
+    "grpc",
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries",
+    "Typing :: Typed",
+    "Operating System :: OS Independent",
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/open-inference/python-clients/issues"
 
 [tool.poetry.dependencies]
 python = "^3.8"
