@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "open-inference-openapi"
-version = "2.0.0"
+version = "2.0.0.1"
 description = "Generated OpenAPI client library for the open-inference-protocol"
 authors = ["Zev Isert <zevisert@users.noreply.github.com>"]
 maintainers = ["Zev Isert <zevisert@users.noreply.github.com>"]

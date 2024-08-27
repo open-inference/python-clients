@@ -76,6 +76,16 @@ def patch_recursive_tensor(outputpath: pathlib.Path) -> None:
     )
 
 
+def patch_remove_hardcoded_timeouts(outputpath: pathlib.Path) -> None:
+    for path in itertools.chain(
+        outputpath.glob("**/*.py"),
+        outputpath.glob("**/*.pyi"),
+    ):
+        if "timeout=60," in path.read_text():
+            print(f"> Removing hardcoded timeouts: {path}")
+            path.write_text(path.read_text().replace("timeout=60,", ""))
+
+
 def prepend_apache_license(outputpath: pathlib.Path) -> None:
     for path in itertools.chain(
         outputpath.glob("**/*.py"),
@@ -136,6 +146,7 @@ if __name__ == "__main__":
     maybe_download_proto(protopath)
     build_client()
     patch_recursive_tensor(outputpath)
+    patch_remove_hardcoded_timeouts(outputpath)
     prepend_apache_license(outputpath)
     format_generated_files(outputpath)
     add_py_typed(outputpath)

@@ -65,7 +65,6 @@ class OpenInferenceClient:
             "GET",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "v2/health/live"),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return
@@ -93,7 +92,6 @@ class OpenInferenceClient:
             "GET",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "v2/health/ready"),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return
@@ -130,7 +128,6 @@ class OpenInferenceClient:
                 f"{self._client_wrapper.get_base_url()}/", f"v2/models/{model_name}/versions/{model_version}/ready"
             ),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return
@@ -164,7 +161,6 @@ class OpenInferenceClient:
             "GET",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", f"v2/models/{model_name}/ready"),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return
@@ -194,7 +190,6 @@ class OpenInferenceClient:
             "GET",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "v2"),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return pydantic.parse_obj_as(MetadataServerResponse, _response.json())  # type: ignore
@@ -231,7 +226,6 @@ class OpenInferenceClient:
                 f"{self._client_wrapper.get_base_url()}/", f"v2/models/{model_name}/versions/{model_version}"
             ),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return pydantic.parse_obj_as(MetadataModelResponse, _response.json())  # type: ignore
@@ -263,7 +257,6 @@ class OpenInferenceClient:
             "GET",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", f"v2/models/{model_name}"),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return pydantic.parse_obj_as(MetadataModelResponse, _response.json())  # type: ignore
@@ -317,7 +310,6 @@ class OpenInferenceClient:
             ),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return pydantic.parse_obj_as(InferenceResponse, _response.json())  # type: ignore
@@ -364,7 +356,6 @@ class OpenInferenceClient:
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", f"v2/models/{model_name}/infer"),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return pydantic.parse_obj_as(InferenceResponse, _response.json())  # type: ignore
@@ -405,7 +396,6 @@ class AsyncOpenInferenceClient:
             "GET",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "v2/health/live"),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return
@@ -433,7 +423,6 @@ class AsyncOpenInferenceClient:
             "GET",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "v2/health/ready"),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return
@@ -470,7 +459,6 @@ class AsyncOpenInferenceClient:
                 f"{self._client_wrapper.get_base_url()}/", f"v2/models/{model_name}/versions/{model_version}/ready"
             ),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return
@@ -504,7 +492,6 @@ class AsyncOpenInferenceClient:
             "GET",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", f"v2/models/{model_name}/ready"),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return
@@ -534,7 +521,6 @@ class AsyncOpenInferenceClient:
             "GET",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "v2"),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return pydantic.parse_obj_as(MetadataServerResponse, _response.json())  # type: ignore
@@ -571,7 +557,6 @@ class AsyncOpenInferenceClient:
                 f"{self._client_wrapper.get_base_url()}/", f"v2/models/{model_name}/versions/{model_version}"
             ),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return pydantic.parse_obj_as(MetadataModelResponse, _response.json())  # type: ignore
@@ -603,7 +588,6 @@ class AsyncOpenInferenceClient:
             "GET",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", f"v2/models/{model_name}"),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return pydantic.parse_obj_as(MetadataModelResponse, _response.json())  # type: ignore
@@ -657,7 +641,6 @@ class AsyncOpenInferenceClient:
             ),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return pydantic.parse_obj_as(InferenceResponse, _response.json())  # type: ignore
@@ -704,7 +687,6 @@ class AsyncOpenInferenceClient:
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", f"v2/models/{model_name}/infer"),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
-            timeout=60,
         )
         if 200 <= _response.status_code < 300:
             return pydantic.parse_obj_as(InferenceResponse, _response.json())  # type: ignore
