@@ -1,4 +1,4 @@
-# Copyright 2023 The Open Inference Protocol Working Group
+# Copyright 2024 The Open Inference Protocol Working Group
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -120,8 +120,8 @@ class OpenInferenceClient:
             base_url="https://yourhost.com/path/to/api",
         )
         client.check_model_version_readiness(
-            model_name="model-name",
-            model_version="model-version",
+            model_name="MODEL_NAME",
+            model_version="MODEL_VERSION",
         )
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -157,7 +157,7 @@ class OpenInferenceClient:
             base_url="https://yourhost.com/path/to/api",
         )
         client.check_model_readiness(
-            model_name="model-name",
+            model_name="MODEL_NAME",
         )
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -181,6 +181,14 @@ class OpenInferenceClient:
     def read_server_metadata(self) -> MetadataServerResponse:
         """
         The server metadata endpoint provides information about the server. Compliant servers return a [Server Metadata Response JSON Object](#server-metadata-response-json-object) or a [Server Metadata Response JSON Error Object](#server-metadata-response-json-error-object).
+
+        ---
+        from open_inference.client import OpenInferenceClient
+
+        client = OpenInferenceClient(
+            base_url="https://yourhost.com/path/to/api",
+        )
+        client.read_server_metadata()
         """
         _response = self._client_wrapper.httpx_client.request(
             "GET",
@@ -206,6 +214,16 @@ class OpenInferenceClient:
             - model_name: str.
 
             - model_version: str.
+        ---
+        from open_inference.client import OpenInferenceClient
+
+        client = OpenInferenceClient(
+            base_url="https://yourhost.com/path/to/api",
+        )
+        client.read_model_version_metadata(
+            model_name="MODEL_NAME",
+            model_version="MODEL_VERSION",
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             "GET",
@@ -231,6 +249,15 @@ class OpenInferenceClient:
 
         Parameters:
             - model_name: str.
+        ---
+        from open_inference.client import OpenInferenceClient
+
+        client = OpenInferenceClient(
+            base_url="https://yourhost.com/path/to/api",
+        )
+        client.read_model_metadata(
+            model_name="MODEL_NAME",
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             "GET",
@@ -261,6 +288,27 @@ class OpenInferenceClient:
             - model_version: str.
 
             - request: InferenceRequest.
+        ---
+        from open_inference import InferenceRequest, RequestInput
+        from open_inference.client import OpenInferenceClient
+
+        client = OpenInferenceClient(
+            base_url="https://yourhost.com/path/to/api",
+        )
+        client.model_version_infer(
+            model_name="MODEL_NAME",
+            model_version="MODEL_VERSION",
+            request=InferenceRequest(
+                inputs=[
+                    RequestInput(
+                        name="name",
+                        shape=[1],
+                        datatype="datatype",
+                        data=[],
+                    )
+                ],
+            ),
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             "POST",
@@ -290,6 +338,26 @@ class OpenInferenceClient:
             - model_name: str.
 
             - request: InferenceRequest.
+        ---
+        from open_inference import InferenceRequest, RequestInput
+        from open_inference.client import OpenInferenceClient
+
+        client = OpenInferenceClient(
+            base_url="https://yourhost.com/path/to/api",
+        )
+        client.model_infer(
+            model_name="MODEL_NAME",
+            request=InferenceRequest(
+                inputs=[
+                    RequestInput(
+                        name="name",
+                        shape=[1],
+                        datatype="datatype",
+                        data=[],
+                    )
+                ],
+            ),
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             "POST",
@@ -392,8 +460,8 @@ class AsyncOpenInferenceClient:
             base_url="https://yourhost.com/path/to/api",
         )
         await client.check_model_version_readiness(
-            model_name="model-name",
-            model_version="model-version",
+            model_name="MODEL_NAME",
+            model_version="MODEL_VERSION",
         )
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -429,7 +497,7 @@ class AsyncOpenInferenceClient:
             base_url="https://yourhost.com/path/to/api",
         )
         await client.check_model_readiness(
-            model_name="model-name",
+            model_name="MODEL_NAME",
         )
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -453,6 +521,14 @@ class AsyncOpenInferenceClient:
     async def read_server_metadata(self) -> MetadataServerResponse:
         """
         The server metadata endpoint provides information about the server. Compliant servers return a [Server Metadata Response JSON Object](#server-metadata-response-json-object) or a [Server Metadata Response JSON Error Object](#server-metadata-response-json-error-object).
+
+        ---
+        from open_inference.client import AsyncOpenInferenceClient
+
+        client = AsyncOpenInferenceClient(
+            base_url="https://yourhost.com/path/to/api",
+        )
+        await client.read_server_metadata()
         """
         _response = await self._client_wrapper.httpx_client.request(
             "GET",
@@ -478,6 +554,16 @@ class AsyncOpenInferenceClient:
             - model_name: str.
 
             - model_version: str.
+        ---
+        from open_inference.client import AsyncOpenInferenceClient
+
+        client = AsyncOpenInferenceClient(
+            base_url="https://yourhost.com/path/to/api",
+        )
+        await client.read_model_version_metadata(
+            model_name="MODEL_NAME",
+            model_version="MODEL_VERSION",
+        )
         """
         _response = await self._client_wrapper.httpx_client.request(
             "GET",
@@ -503,6 +589,15 @@ class AsyncOpenInferenceClient:
 
         Parameters:
             - model_name: str.
+        ---
+        from open_inference.client import AsyncOpenInferenceClient
+
+        client = AsyncOpenInferenceClient(
+            base_url="https://yourhost.com/path/to/api",
+        )
+        await client.read_model_metadata(
+            model_name="MODEL_NAME",
+        )
         """
         _response = await self._client_wrapper.httpx_client.request(
             "GET",
@@ -533,6 +628,27 @@ class AsyncOpenInferenceClient:
             - model_version: str.
 
             - request: InferenceRequest.
+        ---
+        from open_inference import InferenceRequest, RequestInput
+        from open_inference.client import AsyncOpenInferenceClient
+
+        client = AsyncOpenInferenceClient(
+            base_url="https://yourhost.com/path/to/api",
+        )
+        await client.model_version_infer(
+            model_name="MODEL_NAME",
+            model_version="MODEL_VERSION",
+            request=InferenceRequest(
+                inputs=[
+                    RequestInput(
+                        name="name",
+                        shape=[1],
+                        datatype="datatype",
+                        data=[],
+                    )
+                ],
+            ),
+        )
         """
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
@@ -562,6 +678,26 @@ class AsyncOpenInferenceClient:
             - model_name: str.
 
             - request: InferenceRequest.
+        ---
+        from open_inference import InferenceRequest, RequestInput
+        from open_inference.client import AsyncOpenInferenceClient
+
+        client = AsyncOpenInferenceClient(
+            base_url="https://yourhost.com/path/to/api",
+        )
+        await client.model_infer(
+            model_name="MODEL_NAME",
+            request=InferenceRequest(
+                inputs=[
+                    RequestInput(
+                        name="name",
+                        shape=[1],
+                        datatype="datatype",
+                        data=[],
+                    )
+                ],
+            ),
+        )
         """
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
