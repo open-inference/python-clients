@@ -1,4 +1,4 @@
-# Copyright 2024 The Open Inference Protocol Working Group
+# Copyright 2025 The Open Inference Protocol Working Group
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,4 +19,9 @@ from .internal_server_error import InternalServerError
 from .not_found_error import NotFoundError
 from .service_unavailable_error import ServiceUnavailableError
 
-__all__ = ["BadRequestError", "InternalServerError", "NotFoundError", "ServiceUnavailableError"]
+__all__ = [
+    "BadRequestError",
+    "InternalServerError",
+    "NotFoundError",
+    "ServiceUnavailableError",
+]

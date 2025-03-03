@@ -3,7 +3,7 @@ groups:
   local:
     generators:
       - name: fernapi/fern-python-sdk
-        version: 0.8.1
+        version: 4.3.14
         output:
           location: local-file-system
           path: ../generated/open_inference/openapi

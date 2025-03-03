@@ -1,4 +1,4 @@
-# Copyright 2024 The Open Inference Protocol Working Group
+# Copyright 2025 The Open Inference Protocol Working Group
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -28,10 +28,18 @@ from .types import (
     RequestOutput,
     ResponseOutput,
     TensorData,
+    TensorDataItem,
 )
-from .errors import BadRequestError, InternalServerError, NotFoundError, ServiceUnavailableError
+from .errors import (
+    BadRequestError,
+    InternalServerError,
+    NotFoundError,
+    ServiceUnavailableError,
+)
+from .client import AsyncOpenInferenceClient, OpenInferenceClient
 
 __all__ = [
+    "AsyncOpenInferenceClient",
     "BadRequestError",
     "InferenceErrorResponse",
     "InferenceRequest",
@@ -43,10 +51,12 @@ __all__ = [
     "MetadataServerResponse",
     "MetadataTensor",
     "NotFoundError",
+    "OpenInferenceClient",
     "Parameters",
     "RequestInput",
     "RequestOutput",
     "ResponseOutput",
     "ServiceUnavailableError",
     "TensorData",
+    "TensorDataItem",
 ]

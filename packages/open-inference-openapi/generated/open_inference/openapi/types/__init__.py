@@ -1,4 +1,4 @@
-# Copyright 2024 The Open Inference Protocol Working Group
+# Copyright 2025 The Open Inference Protocol Working Group
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ from .request_input import RequestInput
 from .request_output import RequestOutput
 from .response_output import ResponseOutput
 from .tensor_data import TensorData
+from .tensor_data_item import TensorDataItem
 
 __all__ = [
     "InferenceErrorResponse",
@@ -42,4 +43,5 @@ __all__ = [
     "RequestOutput",
     "ResponseOutput",
     "TensorData",
+    "TensorDataItem",
 ]

@@ -3,8 +3,6 @@ from textwrap import dedent
 import itertools
 import os
 import pathlib
-import subprocess
-import sys
 import urllib.request
 
 import black
@@ -27,63 +25,9 @@ def maybe_download_proto(protopath: pathlib.Path) -> None:
 
 
 def build_client() -> None:
-    print("> Running fern")
+    print("> Run fern, waiting...")
 
-    result = subprocess.run(["fern", "generate"])
-
-    if result.returncode != 0:
-        sys.exit(result.returncode)
-
-
-def patch_recursive_tensor(outputpath: pathlib.Path) -> None:
-    print(
-        f"> Replacing recursive tensor type in {outputpath / 'open_inference_rest.py'}"
-    )
-
-    (outputpath / "types" / "tensor_data.py").write_text(
-        dedent(
-            """
-            from __future__ import annotations
-            import typing
-
-            try:
-                import pydantic.v1 as pydantic  # type: ignore
-            except ImportError:
-                import pydantic  # type: ignore
-
-
-            class TensorData(pydantic.BaseModel):
-                __root__: typing.List[typing.Union[TensorData, float, str, bool]]
-
-            """
-        )
-    )
-
-    # Remove TensorDataItem, along with its exports
-    (outputpath / "types" / "tensor_data_item.py").unlink()
-    (outputpath / "types" / "__init__.py").write_text(
-        (outputpath / "types" / "__init__.py")
-        .read_text()
-        .replace("from .tensor_data_item import TensorDataItem\n", "")
-        .replace('    "TensorDataItem",\n', "")
-    )
-
-    (outputpath / "__init__.py").write_text(
-        (outputpath / "__init__.py")
-        .read_text()
-        .replace("    TensorDataItem,\n", "")
-        .replace('    "TensorDataItem",\n', "")
-    )
-
-
-def patch_remove_hardcoded_timeouts(outputpath: pathlib.Path) -> None:
-    for path in itertools.chain(
-        outputpath.glob("**/*.py"),
-        outputpath.glob("**/*.pyi"),
-    ):
-        if "timeout=60," in path.read_text():
-            print(f"> Removing hardcoded timeouts: {path}")
-            path.write_text(path.read_text().replace("timeout=60,", ""))
+    input("Press Enter to continue...")
 
 
 def prepend_apache_license(outputpath: pathlib.Path) -> None:
@@ -145,8 +89,8 @@ if __name__ == "__main__":
 
     maybe_download_proto(protopath)
     build_client()
-    patch_recursive_tensor(outputpath)
-    patch_remove_hardcoded_timeouts(outputpath)
+    
+    
     prepend_apache_license(outputpath)
     format_generated_files(outputpath)
     add_py_typed(outputpath)

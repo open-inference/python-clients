@@ -1,4 +1,4 @@
-# Copyright 2024 The Open Inference Protocol Working Group
+# Copyright 2025 The Open Inference Protocol Working Group
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,4 +16,4 @@
 
 import typing
 
-Parameters = typing.Dict[str, typing.Any]
+Parameters = typing.Dict[str, typing.Optional[typing.Any]]
