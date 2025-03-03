@@ -28,7 +28,6 @@ from .types import (
     RequestOutput,
     ResponseOutput,
     TensorData,
-    TensorDataItem,
 )
 from .errors import (
     BadRequestError,
@@ -58,5 +57,4 @@ __all__ = [
     "ResponseOutput",
     "ServiceUnavailableError",
     "TensorData",
-    "TensorDataItem",
 ]

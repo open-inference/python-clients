@@ -52,12 +52,14 @@ def patch_recursive_tensor(outputpath: pathlib.Path) -> None:
             from __future__ import annotations
             import typing
 
-            from ..core.pydantic_utilities import pydantic, IS_PYDANTIC_V2
+            from ..core.pydantic_utilities import pydantic, IS_PYDANTIC_V2, UniversalRootModel
 
             if IS_PYDANTIC_V2:
-                TensorData = pydantic.RootModel[typing.List[typing.Union['TensorData', float, str, bool]]]  # type: ignore # Pydantic v2
+                TensorData = pydantic.RootModel[typing.List[typing.Union["TensorData", float, str, bool]]] # type: ignore # Pydantic v2
+                TensorData.model_rebuild()
             else:
-                class TensorData(pydantic.BaseModel):
+
+                class TensorData(UniversalRootModel):
                     __root__: typing.List[typing.Union[TensorData, float, str, bool]]
 
             """

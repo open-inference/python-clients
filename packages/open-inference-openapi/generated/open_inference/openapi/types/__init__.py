@@ -27,7 +27,6 @@ from .request_input import RequestInput
 from .request_output import RequestOutput
 from .response_output import ResponseOutput
 from .tensor_data import TensorData
-from .tensor_data_item import TensorDataItem
 
 __all__ = [
     "InferenceErrorResponse",
@@ -43,5 +42,4 @@ __all__ = [
     "RequestOutput",
     "ResponseOutput",
     "TensorData",
-    "TensorDataItem",
 ]
