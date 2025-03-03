@@ -30,6 +30,56 @@ def build_client() -> None:
     input("Press Enter to continue...")
 
 
+def patch_client_examples_imports(outputpath: pathlib.Path) -> None:
+    path = (outputpath / "client.py")
+    print(f"> Updating Client example documentation import in {path}")
+    path.write_text(
+        path.read_text()
+        .replace(
+            "from open_inference import OpenInferenceClient",
+            "from open_inference.openapi import OpenInferenceClient",
+        )
+    )
+
+def patch_recursive_tensor(outputpath: pathlib.Path) -> None:
+    print(
+        f"> Replacing recursive tensor type in {outputpath / 'open_inference_rest.py'}"
+    )
+
+    (outputpath / "types" / "tensor_data.py").write_text(
+        dedent(
+            """
+            from __future__ import annotations
+            import typing
+
+            from ..core.pydantic_utilities import pydantic, IS_PYDANTIC_V2
+
+            if IS_PYDANTIC_V2:
+                TensorData = pydantic.RootModel[typing.List[typing.Union['TensorData', float, str, bool]]]  # type: ignore # Pydantic v2
+            else:
+                class TensorData(pydantic.BaseModel):
+                    __root__: typing.List[typing.Union[TensorData, float, str, bool]]
+
+            """
+        )
+    )
+
+    # Remove TensorDataItem, along with its exports
+    (outputpath / "types" / "tensor_data_item.py").unlink()
+    (outputpath / "types" / "__init__.py").write_text(
+        (outputpath / "types" / "__init__.py")
+        .read_text()
+        .replace("from .tensor_data_item import TensorDataItem\n", "")
+        .replace('    "TensorDataItem",\n', "")
+    )
+
+    (outputpath / "__init__.py").write_text(
+        (outputpath / "__init__.py")
+        .read_text()
+        .replace("    TensorDataItem,\n", "")
+        .replace('    "TensorDataItem",\n', "")
+    )
+
 def prepend_apache_license(outputpath: pathlib.Path) -> None:
     for path in itertools.chain(
         outputpath.glob("**/*.py"),
@@ -89,8 +139,9 @@ if __name__ == "__main__":
 
     maybe_download_proto(protopath)
     build_client()
-    
-    
+
+    patch_client_examples_imports(outputpath)
+    patch_recursive_tensor(outputpath)
     prepend_apache_license(outputpath)
     format_generated_files(outputpath)
     add_py_typed(outputpath)

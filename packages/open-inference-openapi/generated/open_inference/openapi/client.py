@@ -59,7 +59,7 @@ class OpenInferenceClient:
 
     Examples
     --------
-    from open_inference import OpenInferenceClient
+    from open_inference.openapi import OpenInferenceClient
 
     client = OpenInferenceClient(
         base_url="https://yourhost.com/path/to/api",
@@ -100,7 +100,7 @@ class OpenInferenceClient:
 
         Examples
         --------
-        from open_inference import OpenInferenceClient
+        from open_inference.openapi import OpenInferenceClient
 
         client = OpenInferenceClient(
             base_url="https://yourhost.com/path/to/api",
@@ -145,7 +145,7 @@ class OpenInferenceClient:
 
         Examples
         --------
-        from open_inference import OpenInferenceClient
+        from open_inference.openapi import OpenInferenceClient
 
         client = OpenInferenceClient(
             base_url="https://yourhost.com/path/to/api",
@@ -200,7 +200,7 @@ class OpenInferenceClient:
 
         Examples
         --------
-        from open_inference import OpenInferenceClient
+        from open_inference.openapi import OpenInferenceClient
 
         client = OpenInferenceClient(
             base_url="https://yourhost.com/path/to/api",
@@ -265,7 +265,7 @@ class OpenInferenceClient:
 
         Examples
         --------
-        from open_inference import OpenInferenceClient
+        from open_inference.openapi import OpenInferenceClient
 
         client = OpenInferenceClient(
             base_url="https://yourhost.com/path/to/api",
@@ -325,7 +325,7 @@ class OpenInferenceClient:
 
         Examples
         --------
-        from open_inference import OpenInferenceClient
+        from open_inference.openapi import OpenInferenceClient
 
         client = OpenInferenceClient(
             base_url="https://yourhost.com/path/to/api",
@@ -387,7 +387,7 @@ class OpenInferenceClient:
 
         Examples
         --------
-        from open_inference import OpenInferenceClient
+        from open_inference.openapi import OpenInferenceClient
 
         client = OpenInferenceClient(
             base_url="https://yourhost.com/path/to/api",
@@ -449,7 +449,7 @@ class OpenInferenceClient:
 
         Examples
         --------
-        from open_inference import OpenInferenceClient
+        from open_inference.openapi import OpenInferenceClient
 
         client = OpenInferenceClient(
             base_url="https://yourhost.com/path/to/api",
@@ -526,7 +526,7 @@ class OpenInferenceClient:
 
         Examples
         --------
-        from open_inference import OpenInferenceClient, RequestInput
+        from open_inference.openapi import OpenInferenceClient, RequestInput
 
         client = OpenInferenceClient(
             base_url="https://yourhost.com/path/to/api",
@@ -624,7 +624,7 @@ class OpenInferenceClient:
 
         Examples
         --------
-        from open_inference import OpenInferenceClient, RequestInput
+        from open_inference.openapi import OpenInferenceClient, RequestInput
 
         client = OpenInferenceClient(
             base_url="https://yourhost.com/path/to/api",
