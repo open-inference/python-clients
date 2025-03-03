@@ -24,5 +24,5 @@ if IS_PYDANTIC_V2:
     TensorData.model_rebuild()
 else:
 
-    class TensorData(UniversalRootModel):
+    class TensorData(UniversalRootModel): # type: ignore[no-redef]
         __root__: typing.List[typing.Union[TensorData, float, str, bool]]
